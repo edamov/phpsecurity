@@ -3,7 +3,7 @@
 * [Introduction](README.md)
 * [Чеклист](cheklist.md)
 * [Наиболее распростарненные уязвимости/атаки](vulnerability-types.md)
-  * Broken access control - это те уязвимости, которые позволяют получить не авторизованный доступ простым перебором инкерментальных значений, которые задают id пользователя или операции.
+  * Broken access control
   * CSRF
   * Cross-Site Scripting (XSS)
     * Reflected XSS Attack
