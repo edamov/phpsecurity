@@ -1,4 +1,3 @@
 # Summary
 
-* [Вступление](Introduction.md)
 
