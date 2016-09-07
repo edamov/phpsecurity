@@ -2,5 +2,5 @@
 
 * [Introduction](README.md)
 * [Чеклист](cheklist.md)
-* [Наиболее распростарненные уязвимости/атаки](vulnerability-types)
+* [Наиболее распростарненные уязвимости/атаки](vulnerability-types.md)
 
