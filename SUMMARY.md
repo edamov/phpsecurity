@@ -21,7 +21,7 @@
        * Path Traversal (or Directory Traversal)
        * XML Injection
        * LDAP Injection
-   * Security misconfiguration
+   * [Security misconfiguration](security_misconfiguration.md)
 * [Хеширование паролей](passwords-hashing.md)
 * [Полезные ссылки](links.md)
 
