@@ -1,6 +1,6 @@
 # CSRF
 
-CSRF (Cross-Site Request Forgery, также XSRF) - атака, которая приводит к тому, что злоумышленник может выплнять на сторонних сайтах действия от имени других зарегистрированных и залогиненных пользователей. 
+CSRF (Cross-Site Request Forgery, также XSRF) - атака, которая приводит к тому, что злоумышленник может выполнять на сторонних сайтах действия от имени других залогиненных пользователей. 
 
 Единственная уважительная причина не использовать защиту от данного вида атак — сайт не хранит никакие пользовательские данные, а вы не используете панель администратора для редактирования материалов.
 
@@ -23,8 +23,9 @@ CSRF (Cross-Site Request Forgery, также XSRF) - атака, которая 
 
 
 ### Защита:
-https://habrahabr.ru/post/235247/
 
+Защищать необходимо все запросы, изменяющие данные на сервере.
+https://habrahabr.ru/post/235247/
 
 Use re-authentication for critical operations (change password, recovery email, etc.)
 If you're not sure whether your operation is CSRF proof, consider adding CAPTCHAs (however CAPTCHAs are inconvenience for users)
