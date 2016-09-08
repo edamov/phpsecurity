@@ -4,7 +4,7 @@
 * [Чеклист](cheklist.md)
 * [Наиболее распростарненные уязвимости/атаки](vulnerability-types.md)
    * [Broken access control](broken_access_control.md)
-   * CSRF
+   * [CSRF](csrf.md)
    * Cross-Site Scripting (XSS)
        * Reflected XSS Attack
        * Stored XSS Attack
