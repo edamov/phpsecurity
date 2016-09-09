@@ -14,7 +14,7 @@
    * Brute force
    * Insufficient Transport Layer Security (HTTPS, TLS and SSL)
    * [Injection Attacks](injection_attacks.md)
-       * SQL Injection
+       * [SQL Injection](sql_injection.md)
        * Code Injection (Remote file inclusion, Local file inclusion)
        * Command Injection
        * Log Injection
