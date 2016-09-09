@@ -10,7 +10,7 @@
        * Stored XSS Attack
        * DOM-based XSS Attack
    * DoS
-   * Session fixation
+   * [Session fixation](session_fixation.md)
    * Brute force
    * Insufficient Transport Layer Security (HTTPS, TLS and SSL)
    * [Injection Attacks](injection_attacks.md)
