@@ -23,6 +23,6 @@
        * LDAP Injection
    * [Security misconfiguration](security_misconfiguration.md)
 * [Хеширование паролей](passwords-hashing.md)
-* [Методика](method.md)
+* [Методика](method)
 * [Полезные ссылки](links.md)
 
