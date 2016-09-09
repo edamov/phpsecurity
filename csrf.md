@@ -26,6 +26,8 @@ CSRF (Cross-Site Request Forgery, также XSRF) - атака, которая 
 
 Защищать необходимо все запросы, изменяющие данные на сервере.
 https://habrahabr.ru/post/235247/
+https://learn.javascript.ru/csrf
+https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)
 
 Use re-authentication for critical operations (change password, recovery email, etc.)
 If you're not sure whether your operation is CSRF proof, consider adding CAPTCHAs (however CAPTCHAs are inconvenience for users)
