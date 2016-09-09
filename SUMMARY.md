@@ -1,7 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-* [Чеклист](cheklist.md)
 * [Наиболее распростарненные уязвимости/атаки](vulnerability-types.md)
    * [Broken access control](broken_access_control.md)
    * [CSRF](csrf.md)
@@ -23,6 +22,7 @@
        * LDAP Injection
    * [Security misconfiguration](security_misconfiguration.md)
 * [Хеширование паролей](passwords-hashing.md)
+* [Чеклист](cheklist.md)
 * [Методика](method.md)
 * [Полезные ссылки](links.md)
 
