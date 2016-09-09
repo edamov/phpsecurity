@@ -5,7 +5,7 @@
 * [Наиболее распростарненные уязвимости/атаки](vulnerability-types.md)
    * [Broken access control](broken_access_control.md)
    * [CSRF](csrf.md)
-   * Cross-Site Scripting (XSS)
+   * [Cross-Site Scripting (XSS)](cross-site_scripting_xss.md)
        * [Reflected XSS Attack](reflected_xss_attack.md)
        * Stored XSS Attack
        * DOM-based XSS Attack
