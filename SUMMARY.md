@@ -18,7 +18,7 @@
        * [Code Injection (Remote file inclusion, Local file inclusion)](code_injection.md)
        * Command Injection
        * Log Injection
-       * Path Traversal (or Directory Traversal)
+       * [Path Traversal (or Directory Traversal)](path_traversal_or_directory_traversal.md)
        * XML Injection
        * LDAP Injection
    * [Security misconfiguration](security_misconfiguration.md)
