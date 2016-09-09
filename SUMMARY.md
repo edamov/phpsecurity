@@ -6,7 +6,7 @@
    * [Broken access control](broken_access_control.md)
    * [CSRF](csrf.md)
    * Cross-Site Scripting (XSS)
-       * Reflected XSS Attack
+       * [Reflected XSS Attack](reflected_xss_attack.md)
        * Stored XSS Attack
        * DOM-based XSS Attack
    * DoS
