@@ -4,14 +4,9 @@ https://phpdelusions.net/pdo/sql_injection_example
 
 https://paragonie.com/blog/2015/05/preventing-sql-injection-in-php-applications-easy-and-definitive-guide
 
-SQL-инъекция - одна из наиболее известных атак.
+SQL-инъекция - одна из наиболее известных атак. Эта атака представляет собой внедрение кода, в котором злоумышленники используют уязвимости сайта для отправки в базу данных специальных SQL запросов, которые могут вносить любые изменения либо в худшем случае удалить всю базу данных.
 
-С ростом популярности PDO кол-во атак значительно уменьшилось. Но не все знают, что использование PDO не гарантирует полную защиту, лазейки для потенциальных злоумышленников остаются.
-
-SQL injection is one of the most common types of hacking and it is specifically targeted at database-driven websites or web applications which link to and interact with databases. This attack is a type of code injection, where attackers exploit vulnerabilities in the site’s security measures to send special SQL queries to the database that can modify it and tables within it or in the worst case delete the whole database.
-
-This attack occurs when the web-developers have failed to build in any checking or data validation functionality for the areas of the website where data from external sources can be inserted into the website. An attacker will add his own SQL statements in unprotected SQL queries that utilize data submitted by the user to look-up something in the database.
-
+С ростом популярности PDO и ORM количество атак значительно уменьшилось. Но следует помнить, что использование PDO и так называемых `prepared statements` не всегда гарантирует полноценную защиту от инъекций.
 
 ### Пример
 
@@ -32,4 +27,6 @@ This attack occurs when the web-developers have failed to build in any checking 
 * You may use stored procedures and previously defined cursors to abstract data access so that users do not directly access tables or views;
 
 * You can prevent words such as ‘insert’, ‘update’, ‘drop’, and ‘union’ from being added to the database (these all being words which can alter tables and databases).
+* SQL Injection can not be prevented properly using htmlentities() or add_slashes(). Those methods are intended to ensure view context tasks. They are not intended to secure database interactions.
+* https://phpdelusions.net/pdo/sql_injection_example
 
