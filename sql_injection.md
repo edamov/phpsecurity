@@ -2,6 +2,8 @@
 
 https://phpdelusions.net/pdo/sql_injection_example
 
+https://paragonie.com/blog/2015/05/preventing-sql-injection-in-php-applications-easy-and-definitive-guide
+
 SQL injection is one of the most common types of hacking and it is specifically targeted at database-driven websites or web applications which link to and interact with databases. This attack is a type of code injection, where attackers exploit vulnerabilities in the site’s security measures to send special SQL queries to the database that can modify it and tables within it or in the worst case delete the whole database.
 
 This attack occurs when the web-developers have failed to build in any checking or data validation functionality for the areas of the website where data from external sources can be inserted into the website. An attacker will add his own SQL statements in unprotected SQL queries that utilize data submitted by the user to look-up something in the database.
