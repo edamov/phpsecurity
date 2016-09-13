@@ -10,23 +10,30 @@ SQL-инъекция - одна из наиболее известных ата�
 
 ### Пример
 
+```php
+// GET data is sent through URL: http://example.com/get-user.php?id=1 OR id=2;
+$id = $_GET['id'] ?? null;
 
+// Select user based on the above ID
+// bump! Here SQL code GET data gets injected in your query. Be careful to avoid
+// such coding and use prepared statements instead
+$sql = "SELECT username, email FROM users WHERE id = " . $id;
+```
+Можно подумать, что этот пример притянут за уши, ведь все уже давно используют PDO или ORM любимого фреймворка, которые исключают возможность подобной атаки. В таком случае посмотрите на [пример](https://phpdelusions.net/pdo/sql_injection_example), в котором и PDO может быть беспомощен.
 
 ### Защита
 
-* For better prevention of this security issue, the data must be validated, verified and cleaned up before it can enter the application;
+* Для предотвращение атак всегда необходимо валидировать входящие данные.
 
-* All the sensitive information such as passwords should be encrypted using SHA1 or SHA;
+* Никогда не показывайте пользователям ошибки, в которых содержится информация о структуре БД, названия полей, таблиц.
 
-* Technical information can sometimes contain technical details that might reveal security vulnerabilities to an attacker; therefore, it must be removed from error messages;
+* При возможности ограничивайте права на БД для пользователя, от имени которого делает изменения ваше приложение.
 
-* An attacker specifically looks to error messages to get information such as database names, usernames and table name, hence, you should disable error messages or you can create your own custom error messages;
+* Отключайте возможность делать множественные запросы, если иного не требует логика вашего приложения.
 
-* You can limit the permissions granted on the database and fewer permissions results lower chances of attack;
+* Правильно используйте PDO и `prepared statements`.
 
-* You may use stored procedures and previously defined cursors to abstract data access so that users do not directly access tables or views;
+* SQL-инъекции не могут быть предотвращены исключительно с помощью функций `htmlentities()` и `add_slashes()`. Они изначально не предназначены для обеспечения безопасности БД.
 
-* You can prevent words such as ‘insert’, ‘update’, ‘drop’, and ‘union’ from being added to the database (these all being words which can alter tables and databases).
-* SQL Injection can not be prevented properly using htmlentities() or add_slashes(). Those methods are intended to ensure view context tasks. They are not intended to secure database interactions.
-* https://phpdelusions.net/pdo/sql_injection_example
+ ![https://phpdelusions.net/pdo/sql_injection_example](xkcd-327.png)
 
