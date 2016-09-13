@@ -1,9 +1,5 @@
 # SQL Injection
 
-https://phpdelusions.net/pdo/sql_injection_example
-
-https://paragonie.com/blog/2015/05/preventing-sql-injection-in-php-applications-easy-and-definitive-guide
-
 SQL-инъекция - одна из наиболее известных атак. Эта атака представляет собой внедрение кода, в котором злоумышленники используют уязвимости сайта для отправки в базу данных специальных SQL запросов, которые могут вносить любые изменения либо в худшем случае удалить всю базу данных.
 
 С ростом популярности PDO и ORM количество атак значительно уменьшилось. Но следует помнить, что использование PDO и так называемых `prepared statements` не всегда гарантирует полноценную защиту от инъекций.
@@ -34,6 +30,8 @@ $sql = "SELECT username, email FROM users WHERE id = " . $id;
 * Правильно используйте PDO и `prepared statements`.
 
 * SQL-инъекции не могут быть предотвращены исключительно с помощью функций `htmlentities()` и `add_slashes()`. Они изначально не предназначены для обеспечения безопасности БД.
+
+* https://paragonie.com/blog/2015/05/preventing-sql-injection-in-php-applications-easy-and-definitive-guide
 
  ![https://phpdelusions.net/pdo/sql_injection_example](xkcd-327.png)
 
