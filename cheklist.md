@@ -28,16 +28,6 @@
 - [ ] For user ids and other ids, use [RFC compliant ](http://www.ietf.org/rfc/rfc4122.txt) `UUID` instead of integers. You can find an implementation for this for your language on Github.
 - [ ] JWT are awesome. Use them if required for your single page app/APIs.
 
-
-##### ANDROID / IOS APP
-- [ ] `salt` from payment gateways should not be hardcoded.
-- [ ] `secret` / `auth token` from 3rd party SDK's should not be hardcoded.
-- [ ] API calls intended to be done `server to server` should not be done from the app.
-- [ ] In Android, all the granted  [permissions](https://developer.android.com/guide/topics/security/permissions.html) should be carefully evaluated.
-- [ ] On iOS, store sensitive information (authentication tokens, API keys, etc.) in the system keychain. Do __not__ store this kind of information in the user defaults.
-- [ ] [Certificate pinning](https://en.wikipedia.org/wiki/HTTP_Public_Key_Pinning) is highly recommended.
-
-
 ##### SECURITY HEADERS & CONFIGURATIONS
 - [ ] `Add` [CSP](https://en.wikipedia.org/wiki/Content_Security_Policy) header to mitigate XSS and data injection attacks. This is important.
 - [ ] `Add` [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery) header to prevent cross site request forgery. Also add [SameSite](https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site-00) attributes on cookies.
