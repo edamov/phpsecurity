@@ -65,11 +65,9 @@ http://www.phptherightway.com/#security
 - [ ] Sanitize Outputs before displaying to users.
 
 ##### OPERATIONS
-- [ ] If you are small and inexperienced, evaluate using AWS elasticbeanstalk or a PaaS to run your code.
 - Проверяйте, что у вас на сервере нет "случайно" открытых портов наружу.
 - Проверяйте вашу БД на "не дефолтные" пароли, особенно в MongoDB & Redis.
 - Используйте SSH для доступа на сервер; забудьте про доступ к SSH по паролю, используйте аутентификацию по SSH-ключам.
-- [ ] Install updates timely to act upon zero day vulnerabilities like Heartbleed, Shellshock.
 - [ ] Modify server config to use TLS 1.2 for HTTPS and disable all other schemes. (The tradeoff is good.)
 - Не оставляйте DEBUG-режим включенным. В некоторых фреймворках включенный DEBUG-режим может привести к утечке критически важной для безопасности вашего приложения информации.
 - Будьте готовы к DDOS-атакам, используйте хостинг, который помогает обезопасить или смягчить атаки подобного рода.
