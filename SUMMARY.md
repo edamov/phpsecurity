@@ -22,7 +22,6 @@
        * LDAP Injection
    * [Security misconfiguration](security_misconfiguration.md)
 * [Хеширование паролей](passwords-hashing.md)
-* [Чеклист](cheklist.md)
 * [Методика](method.md)
 * [Полезные ссылки](links.md)
 
