@@ -66,16 +66,14 @@ http://www.phptherightway.com/#security
 
 ##### OPERATIONS
 - [ ] If you are small and inexperienced, evaluate using AWS elasticbeanstalk or a PaaS to run your code.
-- [ ] Use a decent provisioning script to create VMs in the cloud.
-- [ ] Check for machines with unwanted publicly `open ports`.
-- Проверьте вашу БД на "не дефолтные" пароли, особенно MongoDB & Redis.
+- Проверяйте, что у вас на сервере нет "случайно" открытых портов наружу.
+- Проверяйте вашу БД на "не дефолтные" пароли, особенно в MongoDB & Redis.
 - Используйте SSH для доступа на сервер; забудьте про доступ к SSH по паролю, используйте аутентификацию по SSH-ключам.
 - [ ] Install updates timely to act upon zero day vulnerabilities like Heartbleed, Shellshock.
 - [ ] Modify server config to use TLS 1.2 for HTTPS and disable all other schemes. (The tradeoff is good.)
 - Не оставляйте DEBUG-режим включенным. В некоторых фреймворках включенный DEBUG-режим может привести к утечке критически важной для безопасности вашего приложения информации.
 - Будьте готовы к DDOS-атакам, используйте хостинг, который помогает обезопасить или смягчить атаки подобного рода.
-- Установите мониторинг за вашей системой, логируйте **(что логировать?????)**.
-- [ ] If developing for enterprise customers, adhere to compliance requirements. If AWS S3, consider using the feature to [encrypt data](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html). If using AWS EC2, consider using the feature to use encrypted volumes (even boot volumes can be encrypted now).
+- Установите систему мониторинга за вашим приложением, логируйте **(что логировать?????)**.
 
 ##### PEOPLE
 - Set up an email (e.g. security@coolcorp.io) and a page for security researchers to report vulnerabilities.
