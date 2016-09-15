@@ -40,7 +40,7 @@ http://www.phptherightway.com/#security
 - Any upload feature should sanitize the filename provided by the user. Also, for generally reasons apart from security, upload to something like S3 (and post-process using lambda) and not your own server capable of executing code.  
 - `Profile photo upload` feature should sanitize all the `EXIF` tags also if not required.
 - For user ids and other ids, use [RFC compliant ](http://www.ietf.org/rfc/rfc4122.txt) `UUID` instead of integers. You can find an implementation for this for your language on Github.
-- JWT are awesome. Use them if required for your single page app/APIs.
+- Используйте JWT-токены, если вы разрабатываете API.
 
 ##### SECURITY HEADERS & CONFIGURATIONS
 - `Add` [CSP](https://en.wikipedia.org/wiki/Content_Security_Policy) header to mitigate XSS and data injection attacks. This is important.
