@@ -6,16 +6,14 @@ http://www.phptherightway.com/#security
 
 Правило номер ноль - никогда нельзя доверять входящим данным.
 Всегда фильтруйте получаемые данные (формы, файлы, HTTP заголовки...) и экранируйте ответ.
-Предпочитайте белые списки - входящие данные не валидны, пока не доказано обратное.
+Предпочитайте белые списки - входящие данные не валидны, пока не доказано обратное. Это основа основ.
 
-- Используйте [актуальные версии PHP](https://secure.php.net/supported-versions.php) и библиотек в вашем приложении. Рекомендуется регулярно обновлять PHP и быть в курсе изменений, сделанных в последних версиях.
+Используйте [актуальные версии PHP](https://secure.php.net/supported-versions.php) и библиотек в вашем приложении. Рекомендуется регулярно обновлять PHP и быть в курсе изменений, сделанных в последних версиях.
 
-- Используйте инструменты для проверки безопасности приложений:
+Наличие известных уязвимостей можно проверить используя следующие инструменты:
   - [Security Advisories Checker](https://security.sensiolabs.org) - проверяет composer зависимости на наличие известных уязвимостей;
   - [PHP Security Advisories Database](https://github.com/FriendsOfPHP/security-advisories) - база данных известных уязвимостей в различных PHP проектах и библиотеках;
   - [Scanner for php.ini](https://github.com/psecio/iniscan) - утилита для проверки php.ini файла на наличие небезопасных конфигов.
-
-- Не используйте метод GET для изменения состояния приложения.
 
 ##### AUTHENTICATION SYSTEMS (Signup/Signin/2 Factor/Password reset) 
 - Используйте HTTPS.
@@ -23,8 +21,8 @@ http://www.phptherightway.com/#security
 - Удаляйте идентификатор сессии после логаута.
 - Удаляйте все активные сессии при сбросе пароля.
 - Используйте `session_regenerate_id()` после успешного логина.
-- При использовании протокола OAuth2 обязательно наличие `state` параметра.
 - Избегайте открытых редиректов после успешного логина(????).
+- При использовании протокола OAuth2 обязательно наличие `state` параметра.
 - Обрабатывайте входящие данные во время Signup/Login на случай наличия конструкций `javascript://`, `data://`, CRLF символов. 
 - Используйте безопасные httpOnly куки.
 - Ограничивайте количество неудачных попыток при логине пользователей. Используйте капчу или метод `повторите вашу попытку через N минут`.
@@ -53,6 +51,7 @@ http://www.phptherightway.com/#security
 - Add [subresource integrity checks](https://en.wikipedia.org/wiki/Subresource_Integrity) if loading your JavaScript libraries from a third party CDN. For extra security, add the [require-sri-for](https://w3c.github.io/webappsec-subresource-integrity/#parse-require-sri-for) CSP-directive so you don't load resources that don't have an SRI sat.  
 - Use random CSRF tokens and expose business logic APIs as HTTP POST requests. Do not expose CSRF tokens over HTTP for example in an initial request upgrade phase.
 - Do not use critical data or tokens in GET request parameters. Exposure of server logs or a machine/stack processing them would expose user data in turn.  
+- Не используйте метод GET для изменения состояния приложения.
   
   
 ##### SANITIZATION OF INPUT
