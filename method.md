@@ -52,8 +52,8 @@ http://www.phptherightway.com/#security
 - Sanitize user input if using it directly for functionalities like CSV import.
 - `Sanitize` user input for special cases like robots.txt as profile names in case you are using a url pattern like coolcorp.io/username. 
 - Do not hand code or build JSON by string concatenation ever, no matter how small the object is. Use your language defined libraries or framework.
-- [ ] Sanitize inputs that take some sort of URLs to prevent [SSRF](https://docs.google.com/document/d/1v1TkWZtrhzRLy0bYXBcdLUedXGb9njTNIJXa3u9akHM/edit#heading=h.t4tsk5ixehdd).
-- [ ] Sanitize Outputs before displaying to users.
+- Sanitize inputs that take some sort of URLs to prevent [SSRF](https://docs.google.com/document/d/1v1TkWZtrhzRLy0bYXBcdLUedXGb9njTNIJXa3u9akHM/edit#heading=h.t4tsk5ixehdd).
+- Экранируйте респонсы перед выводом на экраны пользователей.
 
 ##### OPERATIONS
 - Проверяйте, что у вас на сервере нет "случайно" открытых портов наружу.
