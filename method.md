@@ -8,7 +8,7 @@ http://www.phptherightway.com/#security
 Всегда фильтруйте получаемые данные (формы, файлы, HTTP заголовки...) и экранируйте ответ.
 Предпочитайте белые списки - входящие данные не валидны, пока не доказано обратное. Это основа основ.
 
-##### AUTHENTICATION SYSTEMS (Signup/Signin/2 Factor/Password reset) 
+##### AUTHENTICATION SYSTEMS (Signup/Signin/Password reset) 
 - Используйте HTTPS.
 - Для хеширования паролей используйте `bcrypt` (нет необходимости отдельно генерировать соль - `bcrypt` сделает это за вас).
 - Удаляйте идентификатор сессии после логаута.
@@ -26,11 +26,10 @@ http://www.phptherightway.com/#security
 
 ##### USER DATA & AUTHORIZATION
 - Any resource access like, `my cart`, `my history` should check the logged in user's ownership of the resource using session id.
-- Serially iterable resource id should be avoided. Use `/me/orders` instead of `/user/37153/orders`. This acts as a sanity check in case you forgot to check for authorization token. 
-- `Edit email/phone number` feature should be accompanied by a verification email to the owner of the account. 
+- В качестве идентификаторов пользователей и других сущностей используйте `UUID` вместо автоинкрементных чисел.
+- Фича `Edit email/phone number` всегда должна верифицироваться владельцем аккаунта. 
 - Any upload feature should sanitize the filename provided by the user. Also, for generally reasons apart from security, upload to something like S3 (and post-process using lambda) and not your own server capable of executing code.  
-- `Profile photo upload` feature should sanitize all the `EXIF` tags also if not required.
-- For user ids and other ids, use [RFC compliant ](http://www.ietf.org/rfc/rfc4122.txt) `UUID` instead of integers. You can find an implementation for this for your language on Github.
+- При реализации функционала `Profile photo upload` нужно фильтровать все `EXIF` теги кроме случаев, когда они необходимы.
 - Используйте JWT-токены, если вы разрабатываете API.
 
 ##### SECURITY HEADERS & CONFIGURATIONS
