@@ -8,13 +8,6 @@ http://www.phptherightway.com/#security
 Всегда фильтруйте получаемые данные (формы, файлы, HTTP заголовки...) и экранируйте ответ.
 Предпочитайте белые списки - входящие данные не валидны, пока не доказано обратное. Это основа основ.
 
-Используйте [актуальные версии PHP](https://secure.php.net/supported-versions.php) и библиотек в вашем приложении. Рекомендуется регулярно обновлять PHP и быть в курсе изменений, сделанных в последних версиях.
-
-Наличие известных уязвимостей можно проверить используя следующие инструменты:
-  - [Security Advisories Checker](https://security.sensiolabs.org) - проверяет composer зависимости на наличие известных уязвимостей;
-  - [PHP Security Advisories Database](https://github.com/FriendsOfPHP/security-advisories) - база данных известных уязвимостей в различных PHP проектах и библиотеках;
-  - [Scanner for php.ini](https://github.com/psecio/iniscan) - утилита для проверки php.ini файла на наличие небезопасных конфигов.
-
 ##### AUTHENTICATION SYSTEMS (Signup/Signin/2 Factor/Password reset) 
 - Используйте HTTPS.
 - Для хеширования паролей используйте `bcrypt` (нет необходимости отдельно генерировать соль - `bcrypt` сделает это за вас).
@@ -78,3 +71,11 @@ http://www.phptherightway.com/#security
 - Be polite to bug reporters.
 - Have your code review done by a fellow developer from a secure coding perspective. (More eyes)
 -  In case of a hack or data breach, check previous logs for data access, ask people to change passwords. You might require an audit by external agencies depending on where you are incorporated.  
+
+
+И последнее, всегда используйте [актуальные версии PHP](https://secure.php.net/supported-versions.php) и библиотек в вашем приложении. Рекомендуется регулярно обновлять PHP и быть в курсе изменений, сделанных в последних версиях.
+
+Наличие известных уязвимостей можно проверить используя следующие инструменты:
+  - [Security Advisories Checker](https://security.sensiolabs.org) - проверяет composer зависимости на наличие известных уязвимостей;
+  - [PHP Security Advisories Database](https://github.com/FriendsOfPHP/security-advisories) - база данных известных уязвимостей в различных PHP проектах и библиотеках;
+  - [Scanner for php.ini](https://github.com/psecio/iniscan) - утилита для проверки php.ini файла на наличие небезопасных конфигов.
