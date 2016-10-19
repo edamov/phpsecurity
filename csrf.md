@@ -7,8 +7,8 @@ CSRF (Cross-Site Request Forgery, также XSRF) - атака, которая 
 ### Пример:
 Один из типичных сценариев CSRF атаки:
 
-* Гиви авторизируется на уязвимом сайте (bank.com) и в браузере сохраняются куки.
-* Гиви попадает на страницу злоумышленника (через приглашение в емейле или каким-то другим способом), на которой находится html форма:
+* Пользователь авторизируется на уязвимом сайте (bank.com) и в браузере сохраняются куки.
+* Пользователь попадает на страницу злоумышленника (через приглашение в емейле или каким-то другим способом), на которой находится html форма:
 
 ```html
 <form action="http://bank.com/send-money" method="POST">
@@ -19,7 +19,7 @@ CSRF (Cross-Site Request Forgery, также XSRF) - атака, которая 
 </form>
 ```
 
-* Гиви по незнанию сабмитит форму (либо форма сабимитится автоматически из JS), cайт bank.com проверяет куки, видит, что посетитель авторизован и обрабатывает форму, profit!
+* Пользователь по незнанию сабмитит форму (либо форма сабмитится автоматически из JS), cайт bank.com проверяет куки, видит, что посетитель авторизован и обрабатывает форму, profit!
 
 
 ### Защита:
@@ -29,20 +29,43 @@ https://habrahabr.ru/post/235247/
 https://learn.javascript.ru/csrf
 https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)
 
-Use re-authentication for critical operations (change password, recovery email, etc.)
-If you're not sure whether your operation is CSRF proof, consider adding CAPTCHAs (however CAPTCHAs are inconvenience for users)
-If you're performing operations based on other parts of a request (neither GET nor POST) e.g Cookies or HTTP Headers, you might need to add CSRF tokens there as well.
-AJAX powered forms need to re-create their CSRF tokens. Use the function provided above (in code snippet) for that and never rely on Javascript.
-CSRF on GET or Cookies will lead to inconvenience, consider your design and architecture for best practices.
+Типичный способ защиты сайтов – это «секретный ключ» (secret), специальное значение, которое генерируется случайным образом и сохраняется в сессии посетителя. Его знает только сервер, посетителю мы его даже не будем показывать.
 
-How To Protect Against It
-The first step is to ensure no data-altering actions are per-
-formed by GET requests. Anything that performs an action
-on data should require a POST, PUT, or DELETE request. If
-the user clicks a delete button, they should then be taken to a
-form used to confirm the action. If data-altering actions need
-to be performed over GET (maybe for a RESTful API), you can
-require a unique token in the query string. In the following
-examples we will be using POST data but the exact same
-concepts apply when dealing with GET requests; just set the
-token in the query string instead of in the POST parameters.
+Затем на основе ключа генерируется «токен» (token). Токен делается так, чтобы с одной стороны он был отличен от ключа, в частности, может быть много токенов для одного ключа, с другой – чтобы было легко проверить по токену, сгенерирован ли он на основе данного ключа или нет.
+
+Для каждого токена нужно дополнительное случайное значение, которое называют «соль» salt.
+
+Пример вычесления токена:
+```php
+$token = $salt . ":" + md5($salt + ":" + $secret)
+```
+
+Не зная secret, невозможно сгенерировать token, который сервер воспримет как правильный.
+Далее, токен добавляется в качестве скрытого поля к каждой форме, генерируемой на сервере.
+
+То есть, «честная» форма для отсылки сообщений, созданная на bank.com, будет выглядеть так:
+```html
+<form action="http://bank.com/send" method="POST">
+  <input type="hidden" name="csrf" value="1234:5ad02792a3285252e524ccadeeda3401">
+  <textarea name="message">
+    ...
+  </textarea>
+</form>
+```
+При её отправке сервер проверит поле csrf, удостоверится в правильности токена, и лишь после этого отошлёт сообщение.
+
+«Злая страница» при всём желании не сможет сгенерировать подобную форму, так как не владеет secret, и токен будет неверным.
+
+Такой токен также называют «подписью» формы, которая удостоверяет, что форма сгенерирована именно на сервере.
+
+Эта подпись говорит о том, что автор формы – сервер, но ничего не гарантирует относительно её содержания.
+
+Есть ситуации, когда мы хотим быть уверены, что некоторые из полей формы посетитель не изменил самовольно. Тогда мы можем включить в MD5 для формулы токена эти поля, например:
+```php
+$token = $salt . ":" + md5($salt + ":" . $secret + ":" . $request['money'])
+```
+
+При отправке формы сервер проверит подпись, подставив в неё известный ему secret и присланное значение `$request['money']`. При несовпадении либо secret не тот (хакер), либо `$request['money']` изменено.
+
+Также для критических операций (изменение пароля, восстановление электронной почты и т.д.) рекмендуется использовать повторную аутентификацию.
+CAPTHA - так же один из способов защиты от CSRF, но менее дружелюбный для пользователья чем генерация токена.
